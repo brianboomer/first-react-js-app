@@ -1,22 +1,23 @@
 import React from 'react'
-import Box from './box'
+//import Box from './box'
 
 import '../style.css'
 
 class Row extends React.Component {
-    constructor (props) {
-      super(props);
-    }
+    createBox (i) {
+      return <div id={i} className="box"></div>
+      //React.createElement('Box',[id={i}],[])
+}
     createBoxes () {
       let boxRepeat = 8;
       let container = [];
-      let boxJsxInsert = [];
+      let boxes = [];
       for (let i = 0; i < boxRepeat; i++) {
-        boxJsxInsert.push(<Box id={i}/>);
+        boxes.push(this.createBox(i));
       }
-      container.push(<div>{boxJsxInsert}</div>);
+      container.push(<div>{boxes}</div>);
       return container;
-  }
+}
 
     render () {
         return <div className="row">
